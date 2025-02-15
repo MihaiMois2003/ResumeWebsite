@@ -1,0 +1,21 @@
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  padding: 50px;
+}
+
+.about {
+  background-color: #f4f4f4;
+}
+
+.projects {
+  background-color: #ddd;
+}
+
+.contact {
+  background-color: #bbb;
+}

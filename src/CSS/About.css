@@ -1,0 +1,164 @@
+/* About.css */
+
+/* Main section container */
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Changed to column to accommodate title */
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa; /* Light background color */
+  gap: 2rem; /* Space between title and content */
+}
+
+/* Title section styling */
+.section-title {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: #2d2de6; /* Matching the hero section blue */
+  margin-bottom: 0.5rem;
+}
+
+/* Animated underline for title */
+.title-underline {
+  width: 0;
+  height: 3px;
+  background: #2d2de6;
+  margin: 0 auto;
+  transition: width 0.6s ease-out;
+}
+
+.section-title.visible .title-underline {
+  width: 100px;
+}
+
+/* Tab container styling */
+.tab-container {
+  width: 100%;
+  max-width: 1000px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.tab-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tabs navigation wrapper */
+.tabs-wrapper {
+  display: flex;
+  background: #ffffff; /* Lighter background for tabs */
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual tab styling */
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.tab:hover {
+  color: #2d2de6;
+  background: rgba(45, 45, 230, 0.1);
+}
+
+.tab.active {
+  background: #2d2de6;
+  color: white;
+}
+
+/* Icon container */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content area styling */
+.content-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 200px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual content panel styling */
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  color: #333; /* Darker text for better readability */
+}
+
+.content.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.content p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tabs-wrapper {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tab {
+    justify-content: flex-start;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .tab-container {
+    padding: 1rem;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,150 @@
+/* Main hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to right, #2d2de6 50%, white 50%);
+  color: white;
+  text-align: left;
+  padding: 0 10%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Container for text elements */
+.hero-content {
+  max-width: 50%;
+}
+
+/* Title styling */
+.hero h1 {
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Highlighted text (name) fades in slightly later */
+.highlight {
+  color: yellow;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 1.3s ease-in-out forwards;
+}
+
+/* Hand wave emoji effect */
+.wave {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: waveAnimation 1.5s infinite ease-in-out;
+}
+
+/* Description text fades in */
+.hero p {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Social icons container */
+.social-icons {
+  margin-top: 20px;
+  opacity: 0;
+  display: flex;
+  gap: 15px;
+  animation: fadeIn 1.8s ease-in-out forwards;
+}
+
+/* Individual fade-in delays for social icons */
+.social-icons a:nth-child(1) {
+  animation-delay: 2s;
+}
+.social-icons a:nth-child(2) {
+  animation-delay: 2.2s;
+}
+.social-icons a:nth-child(3) {
+  animation-delay: 2.4s;
+}
+
+/* Social icon hover effect */
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Profile image container */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile image styling */
+.hero-image img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  border: 5px solid white;
+  opacity: 0;
+  animation: fadeIn 2.5s ease-in-out forwards,
+    floatAnimation 3s infinite ease-in-out;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Profile image hover effect */
+.hero-image img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hand wave animation */
+@keyframes waveAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Floating effect for the profile picture */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
