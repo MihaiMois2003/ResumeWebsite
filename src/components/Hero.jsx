@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 import "../CSS/Hero.css";
 
 function Hero() {
@@ -12,8 +12,10 @@ function Hero() {
             <span className="highlight">Moise Mihai</span>
           </h1>
           <p>
-            I'm a UX Designer and Web Developer. I focus on creating experiences
-            that are functional and visually compelling.
+            Computer Science student passionate about app and web development,
+            always eager to learn and build innovative solutions. Skilled in
+            both frontend and backend, constantly exploring new technologies to
+            grow and create impactful projects.
           </p>
           <div className="social-icons">
             <a
@@ -33,12 +35,12 @@ function Hero() {
               <FaInstagram />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="Github"
             >
-              <FaTwitter />
+              <FaGithub />
             </a>
           </div>
         </div>
