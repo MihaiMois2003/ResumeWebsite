@@ -1,20 +1,35 @@
 /* Main hero section */
 .hero {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 100vh;
   width: 100vw;
   background: linear-gradient(to right, #2d2de6 50%, white 50%);
-  color: white;
-  text-align: left;
-  padding: 0 10%;
-  transition: opacity 0.5s ease-in-out;
+}
+
+/* Left side container */
+.hero-container {
+  display: flex;
+  width: 100%;
 }
 
 /* Container for text elements */
 .hero-content {
-  max-width: 50%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 0 10%;
+  color: white;
+}
+
+/* Container for image */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Title styling */
@@ -24,7 +39,7 @@
   animation: fadeIn 1s ease-in-out forwards;
 }
 
-/* Highlighted text (name) fades in slightly later */
+/* Highlighted text (name) */
 .highlight {
   color: yellow;
   font-weight: bold;
@@ -32,17 +47,17 @@
   animation: fadeIn 1.3s ease-in-out forwards;
 }
 
-/* Hand wave emoji effect */
-.wave {
-  font-size: 2.5rem;
-  display: inline-block;
-  animation: waveAnimation 1.5s infinite ease-in-out;
-}
-
-/* Description text fades in */
+/* Description text */
 .hero p {
   opacity: 0;
   animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Content width constraint */
+.hero-content h1,
+.hero-content p {
+  max-width: 500px;
+  width: 100%;
 }
 
 /* Social icons container */
@@ -52,37 +67,19 @@
   display: flex;
   gap: 15px;
   animation: fadeIn 1.8s ease-in-out forwards;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Individual fade-in delays for social icons */
-.social-icons a:nth-child(1) {
-  animation-delay: 2s;
-}
-.social-icons a:nth-child(2) {
-  animation-delay: 2.2s;
-}
-.social-icons a:nth-child(3) {
-  animation-delay: 2.4s;
-}
-
-/* Social icon hover effect */
+/* Social icon styling */
 .social-icons a {
   color: white;
   font-size: 1.5rem;
-  margin: 0 10px;
   transition: transform 0.3s;
 }
 
 .social-icons a:hover {
   transform: scale(1.2);
-}
-
-/* Profile image container */
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Profile image styling */
@@ -99,13 +96,19 @@
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-/* Profile image hover effect */
 .hero-image img:hover {
   transform: scale(1.1);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Fade-in animation */
+/* Wave animation */
+.wave {
+  font-size: 2.5rem;
+  display: inline-block;
+  animation: waveAnimation 1.5s infinite ease-in-out;
+}
+
+/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -117,7 +120,6 @@
   }
 }
 
-/* Hand wave animation */
 @keyframes waveAnimation {
   0% {
     transform: rotate(0deg);
@@ -136,7 +138,6 @@
   }
 }
 
-/* Floating effect for the profile picture */
 @keyframes floatAnimation {
   0% {
     transform: translateY(0px);
@@ -146,5 +147,21 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-content,
+  .hero-image {
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
   }
 }

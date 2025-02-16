@@ -1,5 +1,22 @@
+/* Font face declarations */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

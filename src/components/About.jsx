@@ -1,38 +1,76 @@
-// About.jsx
 import React, { useState, useEffect } from "react";
-import { Monitor, Code, Palette, Lightbulb } from "lucide-react";
+import { Briefcase, Code2, GraduationCap, Heart } from "lucide-react";
 import "../CSS/About.css";
 
-// Array of descriptions for each tab
 const descriptions = [
   {
-    title: "Description 1",
-    text: "This is placeholder text for description 1. You'll want to replace this with your actual content about your skills, experience, or background.",
-    icon: <Monitor className="w-5 h-5" />,
+    title: "Experience",
+    text: `
+      NTT DATA – TechTrek Program
+      September 2023 – Present
+      • Working on embedded C projects, gaining hands-on experience in software development
+      • Developed strong teamwork, problem-solving, and adaptability skills through collaborative projects
+
+      Education
+      Technical University of Cluj-Napoca – Computer Science (2022 – 2026)
+    `,
+    icon: <Briefcase className="w-5 h-5" />,
   },
   {
-    title: "Description 2",
-    text: "This is placeholder text for description 2. Each description will fade in smoothly as the user scrolls through the section.",
-    icon: <Code className="w-5 h-5" />,
+    title: "Skills",
+    text: `
+      Programming
+      • Java, C/C++/C#, Python, JavaScript, TypeScript
+      • HTML, CSS, React, React Native
+      
+      Software
+      • MS Office (Word, Excel, PowerPoint)
+      • Outlook, Salesforce
+      
+      Languages
+      • English (C1)
+      • Romanian (Native)
+      • German
+      
+      Soft Skills
+      • Adaptable and proactive
+      • Charismatic and team-oriented
+      • Strong communication skills
+    `,
+    icon: <Code2 className="w-5 h-5" />,
   },
   {
-    title: "Description 3",
-    text: "This is placeholder text for description 3. The animation is synchronized with the scroll position for a smooth, interactive experience.",
-    icon: <Palette className="w-5 h-5" />,
+    title: "Certifications",
+    text: `
+      Oracle Certifications
+      • Oracle Database Design (May 2022)
+      • Oracle Database Programming with SQL (May 2022)
+      
+      Language Certifications
+      • Cambridge English: Advanced (C1) – April 2021
+    `,
+    icon: <GraduationCap className="w-5 h-5" />,
   },
   {
-    title: "Description 4",
-    text: "This is placeholder text for description 4. The styling automatically adapts to your system's light/dark theme preferences.",
-    icon: <Lightbulb className="w-5 h-5" />,
+    title: "Volunteering",
+    text: `
+      Faculty Ambassador – Faculty of Automation and Computers
+      • Engaged in public speaking, event organization, and social media promotion
+      • Strengthened interpersonal and leadership skills through outreach programs
+      
+      OSUT Cluj-Napoca (2022 – Present)
+      • Active member in student-led initiatives
+      • Fostering collaboration and networking opportunities
+      • Participating in community-building activities
+    `,
+    icon: <Heart className="w-5 h-5" />,
   },
 ];
 
 function About() {
-  // State to manage active tab and visibility
   const [activeTab, setActiveTab] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Set up intersection observer to trigger animations when section is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -41,19 +79,17 @@ function About() {
         });
       },
       {
-        root: null, // viewport
-        rootMargin: "-20% 0px", // trigger slightly before section is fully visible
-        threshold: 0.1, // trigger when 10% of section is visible
+        root: null,
+        rootMargin: "-20% 0px",
+        threshold: 0.1,
       }
     );
 
-    // Start observing the about section
     const section = document.getElementById("about-section");
     if (section) {
       observer.observe(section);
     }
 
-    // Cleanup observer on component unmount
     return () => {
       if (section) {
         observer.unobserve(section);
@@ -63,14 +99,12 @@ function About() {
 
   return (
     <section id="about-section" className="about-section">
-      {/* Title section with animation */}
       <div className={`section-title ${isVisible ? "visible" : ""}`}>
         <h2>About Me</h2>
         <div className="title-underline"></div>
       </div>
 
       <div className={`tab-container ${isVisible ? "visible" : ""}`}>
-        {/* Tab buttons */}
         <div className="tabs-wrapper">
           {descriptions.map((desc, index) => (
             <button
@@ -84,14 +118,13 @@ function About() {
           ))}
         </div>
 
-        {/* Tab content */}
         <div className="content-wrapper">
           {descriptions.map((desc, index) => (
             <div
               key={index}
               className={`content ${activeTab === index ? "active" : ""}`}
             >
-              <p>{desc.text}</p>
+              <pre className="content-text">{desc.text}</pre>
             </div>
           ))}
         </div>
