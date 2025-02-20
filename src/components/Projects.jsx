@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
+import mission100Image1 from "../assets/mission100_image1.jpg";
+import mission100Image2 from "../assets/mission100_image2.jpg";
+import mission100Image3 from "../assets/mission100_image3.jpg";
+import expensesImage1 from "../assets/expenses_image1.jpg";
+import expensesImage2 from "../assets/expenses_image2.jpg";
+import expensesImage3 from "../assets/expenses_image3.jpg";
+import mission100qr from "../assets/mission100_qr.jpg";
+import expensesqr from "../assets/ExpensesApp_qr.jpg";
+
 import "../CSS/Projects.css";
 
-// Sample project data - replace with your actual projects
+// Updated projects array with correct image paths
 const projects = [
   {
     id: 1,
@@ -10,26 +20,18 @@ const projects = [
     description:
       "MISSION100 – Your AI-powered health companion designed to help you live a longer, healthier life! Get real-time, personalized advice on fitness, nutrition, and lifestyle habits tailored just for you. With AI-driven insights, MISSION100 guides you toward optimal health, empowering you to reach 100 years with vitality. Start your journey to a better you today! 🚀💯",
     technologies: ["React-Native", "Node.js", "Firebase"],
-    screenshots: [
-      "../assets/mission100_image1.jpg",
-      "../assets/mission100_image2.jpg",
-      "../assets/mission100_image3.jpg",
-    ],
-    qrCode: "/api/placeholder/200/200",
+    screenshots: [mission100Image1, mission100Image2, mission100Image3],
+    qrCode: mission100qr,
     githubLink: "https://github.com/MihaiMois2003/mission100",
   },
   {
     id: 2,
     title: "Expenses app",
     description:
-      "A collaborative task management application with real-time updates. Users can create, assign, and track tasks within their team.",
+      "ExpensesApp – A simple React Native app to track expenses using Firebase. Add, update, and delete transactions seamlessly while learning real-time database functionality. 🚀🔥",
     technologies: ["React Native", "Node.js", "Firebase", "Redux"],
-    screenshots: [
-      "../assets/expenses_image1.jpg",
-      "../assets/expenses_image2.jpg",
-      "../assets/expenses_image3.jpg",
-    ],
-    qrCode: "/api/placeholder/200/200",
+    screenshots: [expensesImage1, expensesImage2, expensesImage3],
+    qrCode: expensesqr,
     githubLink: "https://github.com/MihaiMois2003/UdemyReactNative",
   },
 ];
@@ -67,6 +69,7 @@ const Projects = () => {
 
   const openModal = (project) => {
     setSelectedProject(project);
+    setActiveScreenshot(0);
     document.body.style.overflow = "hidden";
   };
 
@@ -74,6 +77,18 @@ const Projects = () => {
     setSelectedProject(null);
     setActiveScreenshot(0);
     document.body.style.overflow = "unset";
+  };
+
+  const nextScreenshot = () => {
+    setActiveScreenshot((prev) =>
+      prev === selectedProject.screenshots.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevScreenshot = () => {
+    setActiveScreenshot((prev) =>
+      prev === 0 ? selectedProject.screenshots.length - 1 : prev - 1
+    );
   };
 
   return (
@@ -95,7 +110,6 @@ const Projects = () => {
           >
             <div className="project-content">
               <h3>{project.title}</h3>
-
               <div className="technologies">
                 {project.technologies.map((tech, index) => (
                   <span key={index} className="tech-tag">
@@ -118,9 +132,37 @@ const Projects = () => {
 
             <h2>{selectedProject.title}</h2>
 
+            <div className="screenshot-container">
+              <img
+                src={selectedProject.screenshots[activeScreenshot]}
+                alt={`${selectedProject.title} screenshot ${
+                  activeScreenshot + 1
+                }`}
+                className="screenshot"
+              />
+
+              <button className="nav-button prev" onClick={prevScreenshot}>
+                <ChevronLeft size={24} />
+              </button>
+              <button className="nav-button next" onClick={nextScreenshot}>
+                <ChevronRight size={24} />
+              </button>
+
+              <div className="screenshot-dots">
+                {selectedProject.screenshots.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`dot ${
+                      activeScreenshot === index ? "active" : ""
+                    }`}
+                    onClick={() => setActiveScreenshot(index)}
+                  />
+                ))}
+              </div>
+            </div>
+
             <div className="project-details">
               <p className="description">{selectedProject.description}</p>
-
               <div className="technologies">
                 {selectedProject.technologies.map((tech, index) => (
                   <span key={index} className="tech-tag">
