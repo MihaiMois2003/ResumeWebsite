@@ -126,20 +126,28 @@ const Projects = () => {
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={closeModal}>
-              <X size={24} />
-            </button>
+            <div className="carousel-section">
+              <button className="close-button" onClick={closeModal}>
+                <X size={20} />
+              </button>
 
-            <h2>{selectedProject.title}</h2>
+              <div className="image-counter">
+                {activeScreenshot + 1} / {selectedProject.screenshots.length}
+              </div>
 
-            <div className="screenshot-container">
-              <img
-                src={selectedProject.screenshots[activeScreenshot]}
-                alt={`${selectedProject.title} screenshot ${
-                  activeScreenshot + 1
-                }`}
-                className="screenshot"
-              />
+              <div className="screenshot-container">
+                {selectedProject.screenshots.map((screenshot, index) => (
+                  <img
+                    key={index}
+                    src={screenshot}
+                    alt={`${selectedProject.title} screenshot ${index + 1}`}
+                    className={`screenshot ${
+                      index === activeScreenshot ? "active" : ""
+                    }`}
+                    style={{ position: "absolute" }}
+                  />
+                ))}
+              </div>
 
               <button className="nav-button prev" onClick={prevScreenshot}>
                 <ChevronLeft size={24} />
@@ -148,21 +156,24 @@ const Projects = () => {
                 <ChevronRight size={24} />
               </button>
 
-              <div className="screenshot-dots">
-                {selectedProject.screenshots.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`dot ${
-                      activeScreenshot === index ? "active" : ""
-                    }`}
-                    onClick={() => setActiveScreenshot(index)}
-                  />
-                ))}
+              <div className="carousel-progress">
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${
+                      ((activeScreenshot + 1) /
+                        selectedProject.screenshots.length) *
+                      100
+                    }%`,
+                  }}
+                />
               </div>
             </div>
 
             <div className="project-details">
+              <h2>{selectedProject.title}</h2>
               <p className="description">{selectedProject.description}</p>
+
               <div className="technologies">
                 {selectedProject.technologies.map((tech, index) => (
                   <span key={index} className="tech-tag">

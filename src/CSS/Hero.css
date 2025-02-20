@@ -180,6 +180,11 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    background: #2d2de6;
+    width: 100%;
+  }
+
   .hero-container {
     flex-direction: column;
   }
