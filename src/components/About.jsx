@@ -25,7 +25,7 @@ const descriptions = [
       
       Software
       • MS Office (Word, Excel, PowerPoint)
-      • Outlook, Salesforce
+      • Outlook
       
       Languages
       • English (C1)

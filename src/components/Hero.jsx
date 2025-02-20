@@ -27,7 +27,7 @@ function Hero() {
               <FaLinkedin />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/mihai_moise/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -35,7 +35,7 @@ function Hero() {
               <FaInstagram />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/MihaiMois2003"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Github"
