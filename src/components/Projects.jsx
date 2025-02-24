@@ -126,15 +126,12 @@ const Projects = () => {
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-button" onClick={closeModal}>
+              <X size={24} />
+            </button>
+
+            {/* Left Column - Carousel */}
             <div className="carousel-section">
-              <button className="close-button" onClick={closeModal}>
-                <X size={20} />
-              </button>
-
-              <div className="image-counter">
-                {activeScreenshot + 1} / {selectedProject.screenshots.length}
-              </div>
-
               <div className="screenshot-container">
                 {selectedProject.screenshots.map((screenshot, index) => (
                   <img
@@ -144,32 +141,32 @@ const Projects = () => {
                     className={`screenshot ${
                       index === activeScreenshot ? "active" : ""
                     }`}
-                    style={{ position: "absolute" }}
                   />
                 ))}
-              </div>
 
-              <button className="nav-button prev" onClick={prevScreenshot}>
-                <ChevronLeft size={24} />
-              </button>
-              <button className="nav-button next" onClick={nextScreenshot}>
-                <ChevronRight size={24} />
-              </button>
+                <button className="nav-button prev" onClick={prevScreenshot}>
+                  <ChevronLeft size={24} />
+                </button>
+                <button className="nav-button next" onClick={nextScreenshot}>
+                  <ChevronRight size={24} />
+                </button>
 
-              <div className="carousel-progress">
-                <div
-                  className="progress-bar"
-                  style={{
-                    width: `${
-                      ((activeScreenshot + 1) /
-                        selectedProject.screenshots.length) *
-                      100
-                    }%`,
-                  }}
-                />
+                <div className="carousel-progress">
+                  <div
+                    className="progress-bar"
+                    style={{
+                      width: `${
+                        ((activeScreenshot + 1) /
+                          selectedProject.screenshots.length) *
+                        100
+                      }%`,
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
+            {/* Middle Column - Project Details */}
             <div className="project-details">
               <h2>{selectedProject.title}</h2>
               <p className="description">{selectedProject.description}</p>
@@ -182,15 +179,6 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="qr-section">
-                <img
-                  src={selectedProject.qrCode}
-                  alt="QR Code"
-                  className="qr-code"
-                />
-                <p>Scan to view live demo</p>
-              </div>
-
               <a
                 href={selectedProject.githubLink}
                 target="_blank"
@@ -199,6 +187,16 @@ const Projects = () => {
               >
                 View on GitHub
               </a>
+            </div>
+
+            {/* Right Column - QR Code */}
+            <div className="qr-section">
+              <img
+                src={selectedProject.qrCode}
+                alt="QR Code"
+                className="qr-code"
+              />
+              <p>Scan to view live demo</p>
             </div>
           </div>
         </div>
