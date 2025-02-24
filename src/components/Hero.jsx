@@ -19,7 +19,7 @@ function Hero() {
           </p>
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/mihai-moise-107b22351/"
+              href="https://www.linkedin.com/in/mihai-moise-5b1895212/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
