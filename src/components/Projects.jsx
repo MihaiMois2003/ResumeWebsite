@@ -12,7 +12,6 @@ import expensesqr from "../assets/ExpensesApp_qr.jpg";
 
 import "../CSS/Projects.css";
 
-// Updated projects array with correct image paths
 const projects = [
   {
     id: 1,
