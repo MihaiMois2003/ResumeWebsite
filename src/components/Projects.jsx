@@ -7,7 +7,7 @@ import mission100Image3 from "../assets/mission100_image3.jpg";
 import expensesImage1 from "../assets/expenses_image1.jpg";
 import expensesImage2 from "../assets/expenses_image2.jpg";
 import expensesImage3 from "../assets/expenses_image3.jpg";
-import mission100qr from "../assets/mission100_qr.jpg";
+import mission100qr from "../assets/MISSION100_qr.jpg";
 import expensesqr from "../assets/ExpensesApp_qr.jpg";
 
 import "../CSS/Projects.css";
