@@ -20,20 +20,23 @@ function Hero() {
           </p>
 
           <div className="social-icons">
-            <a href="#" aria-label="LinkedIn">
+            <a href="" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/mihai_moise/"
+              aria-label="Instagram"
+            >
               <FaInstagram />
             </a>
-            <a href="#" aria-label="GitHub">
+            <a href="https://github.com/MihaiMois2003" aria-label="GitHub">
               <FaGithub />
             </a>
           </div>
         </div>
 
         <div className="hero-image">
-          <img src="/path-to-your-image.jpg" alt="Moise Mihai profile" />
+          <img src="/profile.jpg" alt="Moise Mihai profile" />
         </div>
       </div>
     </div>
