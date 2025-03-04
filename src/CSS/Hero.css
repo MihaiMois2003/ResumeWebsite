@@ -38,30 +38,48 @@
 /* Title styling */
 .hero h1 {
   font-size: 3.5rem;
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+}
+
+/* Desktop-only animations */
+@media (min-width: 769px) {
+  .hero h1 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
 }
 
 /* Highlighted text (name) */
 .highlight {
   color: yellow;
   font-weight: bold;
-  opacity: 0;
-  animation: fadeIn 1.3s ease-in-out forwards;
   display: inline-block;
+}
+
+/* Desktop-only animations for highlight */
+@media (min-width: 769px) {
+  .highlight {
+    opacity: 0;
+    animation: fadeIn 1.3s ease-in-out forwards;
+  }
 }
 
 /* Description text */
 .hero p {
   font-size: 1.25rem;
   line-height: 1.8;
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in-out forwards;
   margin-bottom: 2rem;
   font-weight: 400;
   letter-spacing: 0.02em;
+}
+
+/* Desktop-only animations for paragraph */
+@media (min-width: 769px) {
+  .hero p {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
 }
 
 /* Content width constraint */
@@ -74,13 +92,19 @@
 /* Social icons container */
 .social-icons {
   margin-top: 1rem;
-  opacity: 0;
   display: flex;
   gap: 25px;
-  animation: fadeIn 1.8s ease-in-out forwards;
   width: 100%;
   max-width: 600px;
   justify-content: center;
+}
+
+/* Desktop-only animations for social icons */
+@media (min-width: 769px) {
+  .social-icons {
+    opacity: 0;
+    animation: fadeIn 1.8s ease-in-out forwards;
+  }
 }
 
 /* Social icon styling */
@@ -103,10 +127,16 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   object-fit: cover;
   border: 5px solid white;
-  opacity: 0;
-  animation: fadeIn 2.5s ease-in-out forwards,
-    floatAnimation 3s infinite ease-in-out;
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Desktop-only animations for image */
+@media (min-width: 769px) {
+  .hero-image img {
+    opacity: 0;
+    animation: fadeIn 2.5s ease-in-out forwards,
+      floatAnimation 3s infinite ease-in-out;
+  }
 }
 
 .hero-image img:hover {
@@ -183,60 +213,48 @@
   .hero {
     background: #2d2de6;
     width: 100%;
+    min-height: 100vh;
+    height: 100vh; /* Force full height on mobile */
+    overflow: hidden; /* Prevent scrolling within the hero section */
   }
 
   .hero-container {
     flex-direction: column-reverse;
+    height: 100%; /* Take full height of parent */
+    justify-content: space-between;
   }
 
   .hero-content,
   .hero-image {
     padding: 2rem;
     min-height: auto;
-  }
-
-  /* Image at the top that disappears on scroll for mobile */
-  .hero-image {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: #2d2de6;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  }
-
-  /* Class to hide the image on scroll for mobile */
-  .hide-image {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  /* For the content visibility while scrolling */
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    opacity: 1;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-image {
+    padding-top: 3rem; /* More space at the top */
+    flex: 0 0 auto; /* Don't grow, don't shrink */
+  }
+
+  .hero-content {
+    flex: 1 0 auto; /* Allow to grow but not shrink */
     justify-content: flex-start;
   }
 
-  /* Adjust animation for mobile scrolling experience */
+  /* Force everything to be visible on mobile */
   .hero h1,
   .hero p,
+  .highlight,
   .social-icons,
-  .highlight {
-    opacity: 1;
-    animation: none;
-    transition: opacity 0.3s ease-out;
+  .hero-image img {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
   }
 
   .hero h1 {
     font-size: 2.5rem;
-    margin-top: 1rem;
   }
 
   .hero p {
@@ -247,14 +265,5 @@
   .hero-image img {
     width: 280px;
     height: 280px;
-    animation: fadeIn 1s ease-in-out forwards,
-      floatAnimation 3s infinite ease-in-out;
-  }
-
-  /* Add space at the bottom to ensure scrolling works properly */
-  .hero-content::after {
-    content: "";
-    display: block;
-    height: 5vh;
   }
 }
