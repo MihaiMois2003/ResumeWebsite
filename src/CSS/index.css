@@ -85,20 +85,18 @@ button:focus-visible {
 }
 
 @media (max-width: 768px) {
-  body {
+  /* Global fixes for the black line and general scaling */
+  body,
+  html {
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     position: relative;
+    font-size: 14px; /* Reduce base font size */
   }
 
-  #root {
-    width: 100%;
-    overflow-x: hidden;
-    position: relative;
-  }
-
+  #root,
   .wrapper {
     width: 100%;
     overflow-x: hidden;
@@ -106,42 +104,186 @@ button:focus-visible {
     max-width: 100vw;
   }
 
-  /* Ensure all sections are properly contained */
-  .hero,
+  /* Scale down sections and spacing */
+  .hero-section,
   .about-section,
   .projects-section,
   .contact-section {
+    padding: 1rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
   }
 
-  /* Reset left/right positioning that might cause overflow */
-  .projects-section::before,
-  .projects-section::after,
-  .contact-section::before,
-  .contact-section::after {
-    width: 100%;
-    left: auto;
-    right: auto;
-  }
-
-  /* Fix hero container on mobile */
-  .hero-container {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* Ensure modals don't cause overflow */
-  .modal-overlay,
-  .modal-content {
-    max-width: 100vw;
-    box-sizing: border-box;
-  }
-
+  /* Scale down headings */
   h1 {
-    font-size: 2.5em;
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  h3 {
+    font-size: 1.4rem !important;
+  }
+
+  /* Scale down the hero section content */
+  .hero-content h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-image img {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  /* Scale down about section */
+  .tab {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .content-text {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .content-text strong {
+    font-size: 1.1rem !important;
+  }
+
+  .content-wrapper {
+    height: 400px !important;
+  }
+
+  /* Scale down projects section */
+  .project-card {
+    height: 280px !important;
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.6rem;
+  }
+
+  .tech-tag {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .view-project {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Scale down modal */
+  .modal-content {
+    padding: 0.8rem;
+    gap: 0.8rem;
+    max-height: 80vh;
+  }
+
+  .carousel-section {
+    height: 250px !important;
+  }
+
+  .qr-code {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  /* Scale down contact section */
+  .contact-card {
+    max-width: 90%;
+  }
+
+  .contact-title {
+    font-size: 1.8rem !important;
+  }
+
+  .info-label {
+    font-size: 1rem !important;
+  }
+
+  .info-value {
+    font-size: 0.85rem !important;
+  }
+
+  .icon-container {
+    padding: 0.5rem;
+  }
+
+  .icon-container svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Fix navigation */
+  .navbar {
+    height: 60px;
+  }
+
+  .nav-name {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* Reduce margins and padding throughout */
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .title-underline {
+    height: 2px;
+  }
+
+  .section-title.visible .title-underline {
+    width: 80px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  body,
+  html {
+    font-size: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-image img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .project-card {
+    height: 250px !important;
+  }
+
+  .carousel-section {
+    height: 200px !important;
+  }
+
+  .contact-card {
+    max-width: 95%;
   }
 }
