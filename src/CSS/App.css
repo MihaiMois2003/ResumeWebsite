@@ -1,5 +1,14 @@
 /* App.css */
 
+/* Reset all elements to have no margin/padding/border by default */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100vh;
@@ -119,11 +128,85 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fix for body display in mobile */
+body {
+  display: block !important; /* Override the flex display */
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  left: 0;
+}
+
+/* Fix root container */
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  left: 0;
+  position: relative;
+}
+
+/* Specifically target the hero section which may be causing issues */
+.hero {
+  width: 100% !important;
+  margin: 0 !important;
+  left: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.hero-container {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  left: 0 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Fix critical content alignment */
+  body,
+  html,
+  #root,
+  .wrapper,
+  .section-container,
+  .hero,
+  .hero-container,
+  .about-section,
+  .projects-section,
+  .contact-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    left: 0 !important;
+  }
+
+  /* Fix flex centering issue that often causes side gaps */
+  .hero-content,
+  .hero-image {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure content is centered properly */
+  .hero-content h1,
+  .hero-content p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .section-container {
     width: 100%;
-    padding: 0 10px;
+    padding: 0;
     overflow-x: hidden;
   }
 
