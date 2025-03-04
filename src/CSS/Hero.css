@@ -195,7 +195,7 @@
     min-height: auto;
   }
 
-  /* Sticky image at the top for mobile */
+  /* Image at the top that disappears on scroll for mobile */
   .hero-image {
     position: -webkit-sticky;
     position: sticky;
@@ -204,6 +204,13 @@
     background: #2d2de6;
     padding-top: 2rem;
     padding-bottom: 1rem;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  /* Class to hide the image on scroll for mobile */
+  .hide-image {
+    opacity: 0;
+    transform: translateY(-50px);
   }
 
   /* For the content visibility while scrolling */

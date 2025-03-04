@@ -4,11 +4,37 @@ import "../CSS/Hero.css";
 
 function Hero() {
   const [scroll, setScroll] = useState(0);
+  const [imageVisible, setImageVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Track scroll position
+  // Set initial mobile state and handle resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Check on mount
+    checkMobile();
+
+    // Handle resize
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Track scroll position and manage image visibility
   useEffect(() => {
     const handleScroll = () => {
-      setScroll(window.scrollY);
+      const scrollPosition = window.scrollY;
+      setScroll(scrollPosition);
+
+      // Only for mobile: hide image when scrolling down
+      if (isMobile) {
+        if (scrollPosition > 100 && imageVisible) {
+          setImageVisible(false);
+        } else if (scrollPosition <= 100 && !imageVisible) {
+          setImageVisible(true);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -16,7 +42,7 @@ function Hero() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [imageVisible, isMobile]);
 
   return (
     <div className="hero">
@@ -47,7 +73,11 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-image">
+        <div
+          className={`hero-image ${
+            isMobile && !imageVisible ? "hide-image" : ""
+          }`}
+        >
           <img src="/profile.jpg" alt="Moise Mihai profile" />
         </div>
       </div>
