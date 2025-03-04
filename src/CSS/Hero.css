@@ -186,7 +186,7 @@
   }
 
   .hero-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .hero-content,
@@ -195,8 +195,41 @@
     min-height: auto;
   }
 
+  /* Sticky image at the top for mobile */
+  .hero-image {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #2d2de6;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  /* For the content visibility while scrolling */
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Adjust animation for mobile scrolling experience */
+  .hero h1,
+  .hero p,
+  .social-icons,
+  .highlight {
+    opacity: 1;
+    animation: none;
+    transition: opacity 0.3s ease-out;
+  }
+
   .hero h1 {
     font-size: 2.5rem;
+    margin-top: 1rem;
   }
 
   .hero p {
@@ -207,5 +240,14 @@
   .hero-image img {
     width: 280px;
     height: 280px;
+    animation: fadeIn 1s ease-in-out forwards,
+      floatAnimation 3s infinite ease-in-out;
+  }
+
+  /* Add space at the bottom to ensure scrolling works properly */
+  .hero-content::after {
+    content: "";
+    display: block;
+    height: 5vh;
   }
 }
