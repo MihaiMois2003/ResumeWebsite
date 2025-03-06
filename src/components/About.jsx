@@ -7,7 +7,7 @@ const descriptions = [
     title: "Experience",
     text: `
       NTT DATA – TechTrek Program
-      September 2023 – Present
+      September 2024 – Present
       • Working on embedded C projects, gaining hands-on experience in software development
       • Developed strong teamwork, problem-solving, and adaptability skills through collaborative projects
 
