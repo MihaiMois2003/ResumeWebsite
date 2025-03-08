@@ -45,9 +45,11 @@ const Contact = () => {
         <div className="contact-content">
           {/* Email Contact */}
           <div className="contact-item">
-            <div className="icon-container">
-              <Mail />
-            </div>
+            <a href="mailto:mihaimoise73@gmail.com" className="icon-link">
+              <div className="icon-container">
+                <Mail />
+              </div>
+            </a>
             <div className="contact-info">
               <h3 className="info-label">Email</h3>
               <a href="mailto:mihaimoise73@gmail.com" className="info-value">
@@ -58,9 +60,16 @@ const Contact = () => {
 
           {/* Location */}
           <div className="contact-item">
-            <div className="icon-container">
-              <MapPin />
-            </div>
+            <a
+              href="https://www.google.com/maps/place/Cluj-Napoca,+Romania"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-link"
+            >
+              <div className="icon-container">
+                <MapPin />
+              </div>
+            </a>
             <div className="contact-info">
               <h3 className="info-label">Location</h3>
               <p className="info-value">Cluj-Napoca, Romania</p>
@@ -69,9 +78,11 @@ const Contact = () => {
 
           {/* Phone */}
           <div className="contact-item">
-            <div className="icon-container">
-              <Phone />
-            </div>
+            <a href="tel:+40725465205" className="icon-link">
+              <div className="icon-container">
+                <Phone />
+              </div>
+            </a>
             <div className="contact-info">
               <h3 className="info-label">Phone</h3>
               <a href="tel:+40725465205" className="info-value">
