@@ -22,6 +22,7 @@ const descriptions = [
       Programming
       • Java, C/C++/C#, Python, JavaScript, TypeScript
       • HTML, CSS, React, React Native
+      • Data Structures, Algorithms
       
       Software
       • MS Office (Word, Excel, PowerPoint)
