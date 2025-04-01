@@ -21,7 +21,7 @@ function Hero() {
 
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/mihai-moise-0177b8354/"
+              href="https://www.linkedin.com/in/mihai-ioan-moise-0177b8354/"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
