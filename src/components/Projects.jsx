@@ -4,11 +4,13 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import mission100Image1 from "../assets/mission100_image1.jpg";
 import mission100Image2 from "../assets/mission100_image2.jpg";
 import mission100Image3 from "../assets/mission100_image3.jpg";
-import expensesImage1 from "../assets/expenses_image1.jpg";
-import expensesImage2 from "../assets/expenses_image2.jpg";
-import expensesImage3 from "../assets/expenses_image3.jpg";
 import mission100qr from "../assets/MISSION100_qr.jpg";
-import expensesqr from "../assets/ExpensesApp_qr.jpg";
+import feedScreen from "../assets/FeedScreenLifeMesh.png";
+import postModal from "../assets/PostModalLifeMesh.png";
+import profileScreen from "../assets/ProfileScreenLifeMesh.png";
+import welcomeScreen from "../assets/WelcomeScreenLifeMesh.png";
+import registerScreen from "../assets/RegisterScreenLifeMesh.png";
+import qrCodeLifeMesh from "../assets/qrCodeLifeMeshMobile.png";
 
 import "../CSS/Projects.css";
 
@@ -25,13 +27,26 @@ const projects = [
   },
   {
     id: 2,
-    title: "Expenses app",
+    title: "LifeMesh",
     description:
-      "ExpensesApp – A simple React Native app to track expenses using Firebase. Add, update, and delete transactions seamlessly while learning real-time database functionality. 🚀🔥",
-    technologies: ["React Native", "Node.js", "Firebase", "Redux"],
-    screenshots: [expensesImage1, expensesImage2, expensesImage3],
-    qrCode: expensesqr,
-    githubLink: "https://github.com/MihaiMois2003/UdemyReactNative",
+      "LifeMesh – A smart local community network that connects people in the same area for help, donations, events, and civic initiatives. Features include an interactive local map, user profiles with reputation, community feed, real-time chat, and AI-powered recommendations & moderation. Built with React Native (Expo) for mobile, Next.js for web, and MySQL backend.",
+    technologies: [
+      "React Native (Expo)",
+      "Next.js",
+      "MySQL",
+      "Node.js",
+      "Prisma",
+      "Redux",
+    ],
+    screenshots: [
+      welcomeScreen,
+      registerScreen,
+      feedScreen,
+      postModal,
+      profileScreen,
+    ],
+    qrCode: qrCodeLifeMesh,
+    githubLink: "https://github.com/MihaiMois2003/LifeMesh",
   },
 ];
 
