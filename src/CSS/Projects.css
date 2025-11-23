@@ -128,7 +128,14 @@
 .project-content h3 {
   font-size: 1.8rem;
   color: #2d2de6;
+  margin-bottom: 0.5rem;
+}
+
+.project-type-badge {
+  font-size: 0.9rem;
+  color: #666;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 /* Technology Tags */
@@ -157,6 +164,7 @@
   transition: background-color 0.3s ease;
   width: 100%;
   margin-top: auto;
+  cursor: pointer;
 }
 
 .view-project:hover {
@@ -192,6 +200,13 @@
   grid-template-columns: 350px 1fr 280px;
   gap: 2rem;
   overflow: auto;
+}
+
+/* Website Modal - Single Column Layout */
+.modal-content.website-modal {
+  max-width: 700px;
+  grid-template-columns: 1fr;
+  max-height: 600px;
 }
 
 /* Carousel Section */
@@ -294,6 +309,14 @@
   margin-bottom: 1.5rem;
 }
 
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+}
+
 /* QR Section */
 .qr-section {
   display: flex;
@@ -323,14 +346,16 @@
   cursor: pointer;
   z-index: 10;
   padding: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .close-button:hover {
   color: #2d2de6;
 }
 
-/* GitHub Link */
-.github-link {
+/* Links */
+.github-link,
+.website-link {
   display: inline-block;
   background: #2d2de6;
   color: white;
@@ -339,12 +364,21 @@
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.3s ease;
-  margin-top: auto;
   text-align: center;
 }
 
-.github-link:hover {
+.github-link:hover,
+.website-link:hover {
   background: #2323b3;
+}
+
+.website-link {
+  background: #29f0d9;
+  color: #2d2de6;
+}
+
+.website-link:hover {
+  background: #1fd4bf;
 }
 
 /* Animations */
@@ -399,6 +433,10 @@
     gap: 1rem;
   }
 
+  .modal-content.website-modal {
+    padding: 1.5rem;
+  }
+
   .carousel-section {
     height: 300px;
   }
@@ -428,5 +466,9 @@
 
   .section-title h2 {
     font-size: 2rem;
+  }
+
+  .action-buttons {
+    gap: 0.75rem;
   }
 }
